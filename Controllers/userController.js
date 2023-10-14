@@ -3,6 +3,8 @@ const app=express();
 const mongoose=require("mongoose");
 const dotenv=require("dotenv");
 const bodyparser=require("body-parser");
+const jwt = require('jsonwebtoken');
+
 
 const user=require("../Models/user")
 
@@ -31,7 +33,12 @@ exports.login=async(req,res)=>{
             res.status(500).json({message:"email id or password is incorrect"})
         }
         console.log(data)
-        return res.status(200).json({message:"Login Succesfull"})
+        const secertKey=req.body.email
+        const email=req.body.email;
+        const passwd=req.body.passwd;
+        const payload={email:email,passwd:passwd}
+        const token=jwt.sign(payload,secertKey,{expiresIn:'1h'})
+        return res.status(200).json({token,message:"Login Succesfull"})
         
     }catch(error){
         console.log(error)

@@ -24,7 +24,7 @@ exports.addHotel=async (req,res)=>{
 
 exports.findHotels=async(req,res)=>{
     console.log("In findHotel")
-    const city=req.params.hotelcity;
+    const city=req.params.id;
     try{
         const data=await hotel.find({hotelcity:city})
         if(!data){

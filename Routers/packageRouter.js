@@ -5,7 +5,7 @@ const router=express.Router
 const packageController=require("../Controllers/packageController.js")
 
 app.post("/addPackage",packageController.addPackage)
-app.get("/findPackage",packageController.findPackage)
+app.get("/findPackage/:id",packageController.findPackage)
 
 console.log("PackageRouter Connected");
 module.exports=app

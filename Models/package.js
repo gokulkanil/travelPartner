@@ -7,7 +7,7 @@ const packageSchema= new schema({
     packagecity:"String",
     packagedescription:"String",
     packageitenary:"String",
-    packageprice:"String",
+    packageprice:"Number"
 
 },{timestamps:true})
 

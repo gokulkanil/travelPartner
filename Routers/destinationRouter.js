@@ -5,7 +5,7 @@ const router=express.Router
 const destinationController=require("../Controllers/destinationController.js")
 
 app.post("/addDest",destinationController.addDest)
-app.get("/findDest",destinationController.findDest)
+app.get("/findDest/:id",destinationController.findDest)
 
 console.log("DestinationRouter Connected");
 module.exports=app

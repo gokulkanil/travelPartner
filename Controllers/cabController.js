@@ -9,7 +9,7 @@ const cab=require("../Models/cab")
 exports.addCab=async (req,res)=>{
     console.log("In addCab")
     try{
-        const data=await hotel.create(req.body);
+        const data=await cab.create(req.body);
         if(!data){
             res.status(500).json({message:"Couldn't add Cab"})
         }
@@ -24,7 +24,7 @@ exports.addCab=async (req,res)=>{
 
 exports.findCab=async(req,res)=>{
     console.log("In findCab")
-    const city=req.params.cabcity;
+    const city=req.params.id;
     try{
         const data=await cab.find({cabcity:city})
         if(!data){

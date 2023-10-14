@@ -24,7 +24,7 @@ exports.addDest=async (req,res)=>{
 
 exports.findDest=async(req,res)=>{
     console.log("In findDest")
-    const city=req.params.destcity;
+    const city=req.params.id;
     try{
         const data=await destination.find({destcity:city})
         if(!data){

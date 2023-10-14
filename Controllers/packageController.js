@@ -24,7 +24,8 @@ exports.addPackage=async (req,res)=>{
 
 exports.findPackage=async(req,res)=>{
     console.log("In findPackage")  
-    const city=req.params.packagecity;
+    const city=req.params.id;
+    console.log(city);
     try{
         const data=await package.find({packagecity:city})
         if(!data){
