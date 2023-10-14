@@ -9,6 +9,7 @@ const cabRouter=require("./Routers/cabRouter")
 const destinationRouter=require("./Routers/destinationRouter")
 const packageRouter=require("./Routers/packageRouter")
 const cartRouter=require("./Routers/cartRouter")
+const paymentRouter=require("./Routers/paymentRouter")
 
 
 const PORT=process.env.PORT||5000
@@ -25,7 +26,8 @@ app.use("/api/cab",cabRouter)
 app.use("/api/destination",destinationRouter)
 app.use("/api/package",packageRouter)
 app.use("/api/cart",cartRouter)
+app.use("/api/payment",paymentRouter)
 
 
 
-app.listen(PORT,()=>console.log("listening on port"+PORT))
+app.listen(PORT,()=>console.log("listening on port:"+PORT))
