@@ -22,7 +22,7 @@ exports.payment=async(req,res)=>{
                 return res.status(500).json({message:"Insufficient Balance"})
             }
             const remaining_Balance=bal-amount;
-            const data1=await cards.updateOne({cardNo:cardNo},{$set:{balance:balafter}})
+            const data1=await cards.updateOne({cardNo:cardNo},{$set:{balance:remaining_Balance}})
             const message="Payment Succesfull";
             return res.status(200).json({message,remaining_Balance})
         }

@@ -24,14 +24,17 @@ exports.addPackage=async (req,res)=>{
 
 exports.findPackage=async(req,res)=>{
     console.log("In findPackage")  
-    const city=req.params.id;
+    const city=req.body.city;
+    const maxbudget=req.body.maxbudget;
     console.log(city);
+    console.log(maxbudget);
     try{
-        const data=await package.find({packagecity:city})
-        if(!data){
+        const data=await package.find({$and:[{packagecity:city},{packageprice:{$lt:maxbudget}}]})
+        if(data.length<1){
             res.status(500).json({message:"Cannot find any packages in the selected city"});
 
         }
+        console.log(data)
         return res.status(200).send(data)
     }
     catch(error){

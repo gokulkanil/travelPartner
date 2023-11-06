@@ -26,7 +26,7 @@ exports.findCab=async(req,res)=>{
     console.log("In findCab")
     const city=req.params.id;
     try{
-        const data=await cab.find({cabcity:city})
+        const data=await cab.find({cabcityname:city})
         if(!data){
             res.status(500).json({message:"Cannot find any cab services in the selected city"});
 
